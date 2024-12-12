@@ -1,7 +1,0 @@
-title: "My GitHub Page"
-description: "Welcome to my personal GitHub Pages site!"
-author: "<your-name>"
-email: "<your-email>"
-theme: minima # 可替换为其他主题
-plugins:
-  - jekyll-feed
