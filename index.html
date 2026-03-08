@@ -1,0 +1,43 @@
+---
+layout: default
+title: Home
+---
+
+<div class="profile">
+  <div class="profile-image">
+    <span>YN</span>
+  </div>
+  <div class="profile-info">
+    <h1>{{ site.title }}, PhD</h1>
+    <p class="profile-title">Assistant Professor · Department of Example · University Name</p>
+    <p>
+      Welcome to my academic website. I am a researcher interested in 
+      studying interesting topics and sharing knowledge through this blog.
+    </p>
+    <div class="social-links">
+      {% for social in site.social %}
+      <a href="{{ social.url }}" title="{{ social.name }}">{{ social.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<h2>Latest News</h2>
+<ul>
+  <li><strong>March 2026</strong> - Started this website to share my research and thoughts.</li>
+  <li><strong>January 2026</strong> - Published a new paper in Example Journal.</li>
+  <li><strong>December 2025</strong> - Attended Example Conference 2025.</li>
+</ul>
+
+<h2>Recent Posts</h2>
+<ul class="posts-list">
+  {% for post in site.posts limit:3 %}
+  <li class="post-item">
+    <div>
+      <h3 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p class="post-excerpt">{{ post.content | strip_html | truncate: 150 }}</p>
+    </div>
+    <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+  </li>
+  {% endfor %}
+</ul>
