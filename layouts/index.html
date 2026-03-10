@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="home">
+  <section class="intro">
+    <h1>Welcome to My Blog</h1>
+    <p>This is my personal blog built with Hugo and hosted on GitHub Pages.</p>
+  </section>
+
+  <section class="recent-posts">
+    <h2>Recent Posts</h2>
+    <ul class="posts">
+      {{ range first 5 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+      <li class="post-item">
+        <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+    <p class="rss-subscribe">
+      <a href="{{ "index.xml" | absURL }}">Subscribe via RSS</a>
+    </p>
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">
+
+  <link rel="stylesheet" href="{{ "assets/css/style.css" | absURL }}">
+
+  {{ if .Site.Params.favicon }}
+  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon }}">
+  {{ end }}
+
+  {{ .Hugo.Generator }}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="{{ "/" | absURL }}">{{ .Site.Title }}</a>
+      <nav class="site-nav">
+        <a href="{{ "about/" | absURL }}">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+      <p>
+        <a href="{{ "index.xml" | absURL }}">RSS</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ "assets/js/main.js" | absURL }}"></script>
+</body>
+</html>

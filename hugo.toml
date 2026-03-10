@@ -1,0 +1,16 @@
+baseURL = 'https://zoomlion.github.io/'
+languageCode = 'en-us'
+title = 'zoomlion'
+theme = ''
+
+[params]
+  description = "A personal blog by zoomlion"
+  author = "zoomlion"
+  github = "zoomlion"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[build]
+  writeStats = true

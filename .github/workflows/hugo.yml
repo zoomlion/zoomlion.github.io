@@ -1,4 +1,4 @@
-name: Deploy Jekyll Site
+name: Deploy Hugo Site
 
 on:
   push:
@@ -21,15 +21,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Build with Jekyll
-        uses: jeffreytse/jekyll-deploy-action@master
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          provider: "github"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          jekyll_config: "_config.yml"
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
 
   deploy:
     needs: build

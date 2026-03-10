@@ -1,67 +1,92 @@
-# zoomlion's Blog
+# Hugo Blog
 
-A personal blog built with Jekyll and hosted on GitHub Pages.
+A personal blog built with Hugo and hosted on GitHub Pages.
 
-## Features
+## Quick Start
 
-- Jekyll static site generator
-- Minimal theme (minima)
-- Decap CMS for content management
-- GitHub Actions for automated deployment
-- Responsive design
+### Install Hugo
 
-## Getting Started
+**macOS (Homebrew):**
+```bash
+brew install hugo
+```
+
+**Linux:**
+```bash
+sudo apt install hugo
+# or
+sudo yum install hugo
+```
+
+**Windows:**
+```bash
+choco install hugo -extended
+```
+
+Or download from: https://github.com/gohugoio/hugo/releases
 
 ### Local Development
 
-1. Install Ruby and Bundler
-2. Install dependencies:
-   ```bash
-   bundle install
-   ```
-3. Start local server:
-   ```bash
-   bundle exec jekyll serve
-   ```
-4. Open http://localhost:4000
+```bash
+# Start local server
+hugo server
 
-### Using Decap CMS
+# Open http://localhost:1313
+```
 
-Access the admin panel at: `/admin`
+### Create New Post
 
-To use Decap CMS with GitHub:
+```bash
+hugo new posts/my-new-post.md
+```
 
-1. Go to https://github.com/settings/developers
-2. Create a new OAuth App:
-   - Homepage URL: `https://zoomlion.github.io`
-   - Callback URL: `https://api.netlify.com/auth/done`
-3. Note the Client ID and Client Secret
-4. Deploy to Netlify (free) or use Git Gateway (see below)
+Then edit the file in `content/posts/`
 
-### Git Gateway (No Netlify Required)
+### Build for Production
 
-Since Decap CMS needs authentication, you have two options:
+```bash
+hugo --minify
+```
 
-1. **Use Netlify** (Recommended):
-   - Connect your GitHub repo to Netlify
-   - Enable Identity service
-   - Enable Git Gateway
-   - Access admin at your Netlify URL
-
-2. **Use Decap CMS Cloud** (Easiest):
-   - Go to https://decapcms.org
-   - Connect your GitHub repository
-   - It handles authentication for you
+The output will be in the `public/` folder.
 
 ## Writing Posts
 
-Create new posts in `_posts/` folder with format:
-```
-YYYY-MM-DD-title.md
+Create markdown files in `content/posts/` with front matter:
+
+```yaml
+---
+title: "Your Title"
+date: 2026-03-10
+categories:
+  - Category1
+tags:
+  - tag1
+---
+
+Your content here...
 ```
 
-Or use the Decap CMS admin at `/admin`.
+## Deployment
+
+This site uses GitHub Actions to automatically deploy to GitHub Pages on every push to main branch.
+
+Check deployment status at: https://github.com/zoomlion/zoomlion.github.io/actions
+
+## Directory Structure
+
+```
+.
+├── content/          # Blog posts and pages
+│   ├── posts/        # Blog posts
+│   └── about.md      # About page
+├── layouts/          # Hugo templates
+├── assets/           # CSS, JS, images
+├── static/           # Static files
+├── hugo.toml         # Hugo configuration
+└── public/           # Generated site (gitignored)
+```
 
 ## License
 
-MIT License
+MIT

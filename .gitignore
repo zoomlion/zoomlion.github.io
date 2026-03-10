@@ -1,21 +1,19 @@
+# OS
 .DS_Store
 Thumbs.db
+
+# Editor
 *.swp
 *.swo
 *~
-
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-
-vendor/
-.bundle/
-node_modules/
-
-Gemfile.lock
-*.gem
-
-*.iml
-.idea/
 .vscode/
+.idea/
+
+# Hugo
+public/
+resources/
+.hugo_build.lock/
+
+# Build
+*.gem
+vendor/

@@ -1,30 +1,20 @@
-/* Custom CSS for zoomlion's Jekyll Blog */
+/* Hugo Blog Styles */
 
-/* Reset and Base */
-*, *::before, *::after {
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #fdfdfd;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #0275d8;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  background-color: #fafafa;
 }
 
 /* Layout */
-.wrapper {
+.container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
@@ -32,83 +22,126 @@ a:hover {
 
 /* Header */
 .site-header {
-  border-bottom: 1px solid #eaeaea;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
   padding: 20px 0;
   margin-bottom: 40px;
 }
 
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .site-title {
-  font-size: 1.8em;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #333;
   text-decoration: none;
 }
 
-.site-nav {
-  float: right;
-  margin-top: 5px;
+.site-title:hover {
+  text-decoration: none;
+  color: #0066cc;
 }
 
 .site-nav a {
   margin-left: 20px;
-  color: #333;
+  color: #555;
+  text-decoration: none;
 }
 
-.menu-icon {
-  display: none;
-}
-
-.nav-trigger {
-  display: none;
+.site-nav a:hover {
+  color: #0066cc;
 }
 
 /* Main Content */
-.page-content {
+.main-content {
   min-height: calc(100vh - 200px);
+  padding: 20px 0;
 }
 
-.page-heading {
-  font-size: 2em;
-  margin-bottom: 30px;
+/* Post List */
+.posts {
+  list-style: none;
 }
 
-/* Posts */
-.post {
-  margin-bottom: 60px;
+.post-item {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: baseline;
 }
 
+.post-date {
+  color: #888;
+  font-size: 0.9rem;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.post-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+.post-item a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* Single Post */
 .post-header {
   margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
 }
 
-.post-title {
-  font-size: 2.2em;
+.post-header h1 {
+  font-size: 2rem;
+  line-height: 1.3;
   margin-bottom: 10px;
-  line-height: 1.2;
 }
 
 .post-meta {
   color: #777;
-  font-size: 0.9em;
+  font-size: 0.9rem;
+}
+
+.post-categories a {
+  color: #777;
+  text-decoration: none;
+}
+
+.post-categories a:hover {
+  color: #0066cc;
 }
 
 .post-content {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   line-height: 1.8;
 }
 
 .post-content h2 {
-  margin-top: 1.5em;
-  font-size: 1.6em;
+  font-size: 1.5rem;
+  margin: 1.5em 0 0.5em;
 }
 
 .post-content h3 {
-  margin-top: 1.3em;
-  font-size: 1.3em;
+  font-size: 1.25rem;
+  margin: 1.3em 0 0.5em;
+}
+
+.post-content p {
+  margin-bottom: 1em;
+}
+
+.post-content a {
+  color: #0066cc;
 }
 
 .post-content code {
-  background-color: #f4f4f4;
+  background: #f4f4f4;
   padding: 2px 6px;
   border-radius: 3px;
   font-family: "Courier New", monospace;
@@ -116,10 +149,11 @@ a:hover {
 }
 
 .post-content pre {
-  background-color: #f4f4f4;
+  background: #f4f4f4;
   padding: 15px;
   border-radius: 5px;
   overflow-x: auto;
+  margin: 1em 0;
 }
 
 .post-content pre code {
@@ -131,111 +165,138 @@ a:hover {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
+  margin: 1em 0;
 }
 
 .post-content blockquote {
-  border-left: 4px solid #eaeaea;
-  margin: 1.5em 0;
+  border-left: 4px solid #ddd;
   padding-left: 20px;
   color: #666;
+  margin: 1em 0;
 }
 
-/* Post List */
-.post-list {
-  list-style: none;
-  padding: 0;
+.post-tags {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
 }
 
-.post-list li {
-  margin-bottom: 30px;
-}
-
-.post-list .post-title {
-  font-size: 1.5em;
-  margin: 5px 0;
-}
-
-.post-link {
-  color: #333;
+.post-tags a {
+  color: #666;
   text-decoration: none;
 }
 
-.post-link:hover {
-  color: #0275d8;
+.post-tags a:hover {
+  color: #0066cc;
 }
 
 /* Post Navigation */
-.post-navigation {
+.post-nav {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #eee;
 }
 
 .prev-post, .next-post {
-  color: #0275d8;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.prev-post:hover, .next-post:hover {
+  text-decoration: underline;
 }
 
 /* Pagination */
 .pagination {
-  text-align: center;
   margin-top: 40px;
+  text-align: center;
 }
 
 .pagination a {
+  color: #0066cc;
+  text-decoration: none;
   margin: 0 10px;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
 }
 
 /* Footer */
 .site-footer {
-  border-top: 1px solid #eaeaea;
+  background: #fff;
+  border-top: 1px solid #e8e8e8;
   padding: 30px 0;
   margin-top: 60px;
   color: #777;
+  text-align: center;
 }
 
-.footer-col-wrapper {
-  display: flex;
-  justify-content: space-between;
+.site-footer a {
+  color: #0066cc;
+  text-decoration: none;
 }
 
-.feed-subscribe a {
-  color: #0275d8;
+.site-footer a:hover {
+  text-decoration: underline;
 }
 
-/* Page Layout */
-.page {
-  margin-bottom: 60px;
+/* About Page */
+.content {
+  margin-bottom: 40px;
+}
+
+.content h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.content ul, .content ol {
+  margin-left: 30px;
+  margin-bottom: 1em;
+}
+
+.content li {
+  margin-bottom: 5px;
+}
+
+/* Intro Section */
+.intro {
+  margin-bottom: 40px;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.recent-posts h2 {
+  margin-bottom: 20px;
+}
+
+.rss-subscribe {
+  margin-top: 20px;
+  color: #777;
 }
 
 /* Responsive */
-@media screen and (max-width: 600px) {
-  .site-nav {
-    display: none;
-  }
-  
-  .post-title {
-    font-size: 1.8em;
-  }
-  
-  .footer-col-wrapper {
+@media (max-width: 600px) {
+  .post-item {
     flex-direction: column;
-    text-align: center;
   }
-}
 
-/* Decap CMS Admin Button */
-.admin-link {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #0275d8;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-}
+  .post-date {
+    margin-bottom: 5px;
+  }
 
-.admin-link:hover {
-  background-color: #025aa5;
-  text-decoration: none;
+  .post-header h1 {
+    font-size: 1.6rem;
+  }
 }

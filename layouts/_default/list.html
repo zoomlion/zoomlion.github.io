@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="post-list">
+  <h1>{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}</h1>
+
+  {{ if .Content }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+  {{ end }}
+
+  {{ if .Data.Pages }}
+  <ul class="posts">
+    {{ range .Data.Pages.ByDate.Reverse }}
+    <li class="post-item">
+      <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ if .Paginator }}
+  <div class="pagination">
+    {{ if .Paginator.HasPrev }}
+    <a href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
+    {{ end }}
+
+    <span>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+
+    {{ if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL }}">Next &raquo;</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}
