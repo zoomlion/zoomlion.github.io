@@ -1,0 +1,45 @@
+title: zoomlion
+author: zoomlion
+email: your-email@example.com
+description: A personal blog by zoomlion
+
+url: "https://zoomlion.github.io"
+baseurl: ""
+
+twitter_username: zoomlion
+github_username:  zoomlion
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: zoomlion
+
+# Paginate
+paginate: 5
+paginate_path: "/page:num/"
+
+# Feed
+feed:
+  path: feed.xml
